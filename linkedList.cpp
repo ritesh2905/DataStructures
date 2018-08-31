@@ -34,7 +34,7 @@ void dis()
     cout<<"NULL"<<endl;
 }
 
-void insertAtBegning()
+void insertionAtBegning()
 {	
 	int value = takeValue(); 
 	temp = new node;
@@ -53,16 +53,27 @@ void insertAtBegning()
     cout<<"Element Inserted!!!"<<endl;
 }
 
-void insertAtEnd()
+void insertionAtEnd()
 {
 	if(start == NULL)
+	{
 		cout<<"\nUnderflow!!!";
+		return;
+	}	
 	else
 	{	
 		int value = takeValue(); 
-		while(start->next != NULL);
-		
-		
+		temp = new node;
+		p = new node;
+		temp->data = value;
+		temp->next = NULL;
+		p = start;
+		while(p->next != NULL)
+		{
+			p = p->next;
+		}
+		p->next = temp;	
+		cout<<"Element inserted at last"<<endl;
 		
 	}
 }
@@ -92,11 +103,11 @@ int main()
 		cin>>n;
 		switch(n)
 		{
-			case 1: insertAtBegning();
+			case 1: insertionAtBegning();
 					break;
-			case 2: insertAtEnd();
+			case 2: insertionAtMiddle();
 					break;
-			case 3: insertionAtMiddle();
+			case 3: insertionAtEnd();
 					break;
 			case 4: deletionAtBegning();
 					break;
